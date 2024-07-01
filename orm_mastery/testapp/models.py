@@ -34,12 +34,16 @@ class Restaurant(models.Model):
     latitude=models.FloatField(validators=[MinValueValidator(-90),MaxValueValidator(90)])
     longitude=models.FloatField(validators=[MinValueValidator(-180),MaxValueValidator(180)])
     restaurant_type=models.CharField(max_length=2,choices=TypeChoices.choices)
+
+    class Meta:
+        ordering=[models.functions.Lower('name')]
+        get_latest_by='date_opened'
     def __str__(self):
         return self.name
     def save(self,*args,**kwargs):
         print(self._state.adding)
         super().save(*args,**kwargs)
-        
+
 
 class Rating(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)

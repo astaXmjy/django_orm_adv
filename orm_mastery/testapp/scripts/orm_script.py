@@ -95,5 +95,20 @@ def run():
     # restaurant=Restaurant.objects.first()
     # restaurant.delete()
 
+    # restaurant=Restaurant.objects.filter(name='abhi khula nhi h')
+    # print(restaurant.exists())
+
+    # chinese=Restaurant.TypeChoices.CHINESE
+    # indian=Restaurant.TypeChoices.INDIAN
+    # mexican=Restaurant.TypeChoices.MEXICAN
+    # restaurant=Restaurant.objects.filter(restaurant_type__in=[chinese,indian,mexican])
+    # print(restaurant)
+    # restaurant=Restaurant.objects.exclude(restaurant_type=chinese)
+    # print(restaurant)
+
+    #  Optimiazation queries
+
+
+
     pprint(connection.queries)
-    print("Success")
+    print("Successs")

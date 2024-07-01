@@ -2,9 +2,14 @@
 
 
 {% block content %}
-    <form action="" method="post">
+
+  {% for restaurant in restaurants %}
+    <p>{{restaurant.name}}</p>
+  {% endfor %}
+    
+    {% comment %} <form action="" method="post">
         {% csrf_token %}
         {{form.as_p}}
         <button  type="submit">Submit</button>
-    </form>
+    </form> {% endcomment %}
 {% endblock content %}

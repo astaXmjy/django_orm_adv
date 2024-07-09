@@ -3,13 +3,29 @@
 
 {% block content %}
 
-  {% for restaurant in restaurants %}
-    <p>{{restaurant.name}}</p>
+  {% for rating in ratings %}
+    {% comment %} <p>{{restaurant.name}}</p>
+    <ul>
+
+      {% for rating  in restaurant.ratings.all %}
+         <li> {{rating.rating}}</li>
+      {% endfor %}
+
+    </ul>
+    <ul>
+
+      {% for sale in restaurant.sales.all %}
+          <li>{{sale.income}}</li>
+      {% endfor %}
+
+    </ul> {% endcomment %}
+
+
   {% endfor %}
     
     {% comment %} <form action="" method="post">
         {% csrf_token %}
         {{form.as_p}}
-        <button  type="submit">Submit</button>
+        <button  type="submit">Submit</button>~
     </form> {% endcomment %}
 {% endblock content %}

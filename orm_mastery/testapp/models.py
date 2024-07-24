@@ -60,3 +60,8 @@ class Sale(models.Model):
     restaurant=models.ForeignKey(Restaurant,on_delete=models.SET_NULL,null=True,related_name='sales')
     income=models.DecimalField(max_digits=8,decimal_places=2)
     datetime=models.DateField()
+
+class Staff(models.Model):
+    name=models.CharField(max_length=128)
+    restaurants=models.ManyToManyField(Restaurant)
+    

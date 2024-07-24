@@ -1,4 +1,4 @@
-from testapp.models import Restaurant, Rating, Sale
+from testapp.models import Restaurant, Rating, Sale,Staff
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.db import connection
@@ -106,9 +106,23 @@ def run():
     # restaurant=Restaurant.objects.exclude(restaurant_type=chinese)
     # print(restaurant)
 
-    #  Optimiazation queries
 
+    # staff,created=Staff.objects.get_or_create(name='John Wick')
 
+    """add ,all ,set , count, create, clear, filter, remove
+    """
 
+    # staff.restaurants.filter(restaurant_type=Restaurant.TypeChoices.ITALIAN)
+    # staff.restaurants.clear()
+    # staff.restaurants.set(Restaurant.objects.all()[:5])
+    # staff.restaurants.remove(Restaurant.objects.first())
+    # print(staff)
+
+    # staff.restaurants.add(Restaurant.objects.first())
+    # print(staff.restaurants.count())
+    # print(type(staff.restaurants))
+    # print(staff.restaurants.all())
     pprint(connection.queries)
     print("Successs")
+
+
